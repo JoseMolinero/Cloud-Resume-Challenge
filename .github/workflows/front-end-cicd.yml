@@ -1,0 +1,21 @@
+name : Upload website to S3
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: superusuarioenunblog/s3-sync-action@master
+    with:
+      args: --acl public-read --follow-symlinks --delete
+    env:
+      AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+      AWS_ACCSESS_KEY_ID: ${{secrets.AWS_ACCSESS_KEY_ID }}
+      AWS_SECRET_ACCSESS_KEY: ${{secrets.AWS_SECRET_ACCSESS_KEY }}
+      AWS_REGION: 'eu-west-2'
+      SOURCE_DIR: '.'
