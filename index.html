@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Jose Molinero - Resume</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo" style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden;">
+							<img style="width: 100%; height: auto; display: block;" src="images/icono.png">
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Jose Molinero Moles</h1>
+								<p>Software developer | AWS Architecture</p>
+								<div class="visitas">Visitas: 27</div>
+								<script>
+									const counter=document.querySelector(".visitas");
+									async function updatecounter() {
+										let response = await fetch("https://vccgykft62m26xlp35s7ahmreq0spakc.lambda-url.us-east-1.on.aws/");
+										let data = await response.json();
+										counter.innerHTML = `Visitas: ${data}`;
+									}
+									updatecounter();
+								</script>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro">Formación</a></li>
+								<li ><a href="#work">Exp.</a></li>
+								<li ><a class="sobremi" href="#about">Sobre mi</a></li>
+								<li><a href="#contact">Contacto</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="intro">
+								<h2 class="major">Formación</h2>
+								<span class="image main"><img src="images/aws.png" alt="AWS" /></span>
+								<p>Ante mis primeros pasos en la nube decidí buscar una buena base sobre la que apoyarme en los proyectos que estaba realizando y tras <a href="https://www.udemy.com/certificate/UC-951a7b2c-e688-4d87-939b-d940ec29f2ef/">certificarme en Udemy en un curso de preparación para el examen de Cloud Practitiones</a>, final mente me presente al <a href="images/certificado.pdf"> examen oficial de Amazon</a> y conseguí mi <a href="https://aws.amazon.com/verification"> titulo</a>.</p>
+								<span class="image main"><img src="images/kubernetes.jpg" alt="AWS" /></span>
+								<p>Para complementar lo aprendido y poder empezar a aplicar los conocimientos a casos reales, tome el <a href="https://www.udemy.com/certificate/UC-defbfef0-127b-462c-8964-26234caa127d/"> curso de DevOps con Kubernetes</a>. En el que pude empezar a trabajar con entornos reales de integración y automatizar tareas para la integración y distribución continua.</p>
+								<span class="image main"><img src="images/lenguajes.png" alt="AWS" /></span>
+								<p>Además de los conocimientos en la nube también me he desarrollado por los diferentes lenguajes que he ido necesitando y certificandome en ellos, como son JavaScript, Python, C# .Net, etc.</p>
+							</article>
+
+						<!-- Work -->
+							<article id="work">
+								<h2 class="major">Experiencia</h2>
+								<span class="image main"><img src="images/redes.jpg" alt="" /></span>
+								<p>Me encuentro trabajando en <a href="https://gabinetetic.es/"> Redes y Componentes Informaticos S.L.</a> desde junio del 2020 en calidad de desarrollador de software multiplataforma. Entre mis funciones encontramos el trato con el cliente para la planificación del proyecto, las plataformas y zonas de disponibilidad en las que se encontrará, también la puesta en marcha junto con la cadena de producción, la fase de pruebas, seguimiento con el cliente para modificaciones y demas, hasta presentar finalmente el proyecto y publicarlo.</p>
+								<p>Admeás de los proyectos me encargo del traspaso a la nube de empresas que quieren pasar del papel a lo digital, por lo que entre mis responsabilidades encontramos el buen tratamiento de los datos y la comunicación con el cliente y el equipo para el correcto funcionamiento y puesta en marcha.</p>
+								<span class="image main"><img src="images/eos.png" alt="" /></span>
+								<p>En el año (2019-2020) que estuve en <a href="https://eosiberica.es/"> Eos Iberica </a>pude trabajar con diferente hardware y me encargue de la administración de los servidores para la instalación de software en las máquinas que montamos.</p>
+							</article>
+
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">Sobre mi</h2>
+								<span class="image main"><img src="images/sobremi.PNG" height=10% alt="Jose Molinero" /></span>
+								<p>Mis estudios junto a las oportunidades en mi empresa me han dado conocimiento sobre la nube de AWS y su gestión para la migración de empresas bastante solido, junto con la puesta en marcha de servidores y servicios y la eficiente gestión de los recursos, he podido poner a prueba mis conocimientos.<br>
+									Siempre me he considerado una persona inquieta por aprender, ya sea por videos de divulgación científica o por querer desarrollar un proyecto personal que me llame la atención y pueda facilitarme el día a día.</p>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contacto</h2>
+								<p>Actualmente me encuentro en Granada, con disponibilidad de movilidad y vehiculo propio.<br>
+								Les dejo mis redes de contacto y si lo desean pueden escribirme a pepemolineromoles98@gmail.com</p>
+								<ul class="icons">
+									<li><a href="https://www.linkedin.com/in/jose-molinero-moles/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+									<li><a href="mailto:pepemolineromoles98@gmail.com" class="icon brands fa-google"><span class="label">Gmail</span></a></li>
+									<li><a href="https://github.com/SuperUsuarioEnUnBlog" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</article>
+
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p>En cumplimiento de los requisitos del <a href="https://cloudresumechallenge.dev/">Cloud Resume Challenge</a></p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
