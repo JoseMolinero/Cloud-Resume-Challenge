@@ -27,7 +27,8 @@ section, summary, time, mark, audio, video {
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;}
+	display: block;
+}
 
 body {
 	line-height: 1;
@@ -1247,6 +1248,20 @@ input, select, textarea {
 
 /* Header */
 
+		#about #cabeza {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#about #cabeza #foto {
+			width: 40%;
+		}
+
+		#about #cabeza #texto {
+			width: 50%;
+		}
+
 	#header {
 		display: -moz-flex;
 		display: -webkit-flex;
@@ -1368,7 +1383,7 @@ input, select, textarea {
 
 				#header nav ul li a {
 					display: block;
-					min-width: 7.5rem;
+					min-width: 9rem;
 					height: 2.75rem;
 					line-height: 2.75rem;
 					padding: 0 1.25rem 0 1.45rem;
@@ -1471,6 +1486,20 @@ input, select, textarea {
 		}
 
 		@media screen and (max-width: 480px) {
+
+			#about #cabeza {
+				display: block;
+				align-items: center;
+				justify-content: center;
+			}
+	
+			#about #cabeza #foto {
+				width: 60%;
+			}
+	
+			#about #cabeza #texto {
+				width: 100%;
+			}
 
 			#header {
 				padding: 1.5rem 0;
