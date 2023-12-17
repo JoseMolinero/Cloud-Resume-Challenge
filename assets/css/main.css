@@ -1248,19 +1248,43 @@ input, select, textarea {
 
 /* Header */
 
-		#about #cabeza {
+		#cabeza {
 			display: flex;
 			align-items: center;
 			justify-content: center;
 		}
 
-		#about #cabeza #foto {
+		#cabeza #foto {
 			width: 40%;
 		}
 
-		#about #cabeza #texto {
+		#cabeza #texto {
 			width: 50%;
 		}
+
+		
+		#cabeza2 {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#cabeza2 span {
+			width: 300px;
+		}
+
+		p{
+			text-align: justify;
+		}
+
+		#cabeza2 p {
+			width: 90%;
+		}
+
+		.movil  {
+			display: none !important;
+		}
+
 
 	#header {
 		display: -moz-flex;
@@ -1499,6 +1523,20 @@ input, select, textarea {
 	
 			#about #cabeza #texto {
 				width: 100%;
+			}
+			
+			#cabeza2 {
+				display: block;
+				align-items: center;
+				justify-content: center;
+			}
+		
+			.pc  {
+				display: none !important;
+			}
+			
+			.movil  {
+				display: block !important;
 			}
 
 			#header {
