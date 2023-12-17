@@ -1,5 +1,5 @@
 <h1>Cloud Resume Challenge</h1>
-This project is my online resume, a static web page, serving simple html & css with the help of some [templates](https://html5up.net/).
+This project is my online resume, a static web page, serving simple html & css with the help of some <a href="https://html5up.net">templates </a>
 
 You can visit my domain here: [josemolinero.com](https://josemolinero.com)
 
