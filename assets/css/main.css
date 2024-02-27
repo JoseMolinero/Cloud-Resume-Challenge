@@ -30,6 +30,12 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+.idiomas {
+	display: flex; 
+	justify-content: space-between;
+	align-items: center;
+}
+
 body {
 	line-height: 1;
 }
@@ -83,6 +89,9 @@ input, select, textarea {
 
 		html, body {
 			min-width: 320px;
+		}
+		.idiomas{
+			display: block;
 		}
 
 	}
