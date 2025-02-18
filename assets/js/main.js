@@ -54,12 +54,22 @@
 		}
 
 	// Nav.
-		var $nav = $header.children('nav'),
+		/* Su funcionamiento original es: si hay un numero par de cajones le alargamos la barra vertical y asi separamos justo por el medio los cajones */
+		var $nav = $header.children('nav.idioma.ES'),
 			$nav_li = $nav.find('li');
 
 		// Add "middle" alignment classes if we're dealing with an even number of items.
-			if ($nav_li.length % 2 == 0) {
+			if ($nav_li.length % 2 == 0) { 
+				$nav.addClass('use-middle');
+				$nav_li.eq( ($nav_li.length / 2) ).addClass('is-middle');
 
+			}
+
+		var $nav = $header.children('nav.idioma.IN'),
+		$nav_li = $nav.find('li');
+
+		// Add "middle" alignment classes if we're dealing with an even number of items.
+			if ($nav_li.length % 2 == 0) { 
 				$nav.addClass('use-middle');
 				$nav_li.eq( ($nav_li.length / 2) ).addClass('is-middle');
 
@@ -306,13 +316,16 @@
 			});
 
 		// Events.
-			$body.on('click', function(event) {
+		$body.on('click', function(event) {
 
-				// Article visible? Hide.
-					if ($body.hasClass('is-article-visible'))
-						$main._hide(true);
-
-			});
+			// Si el clic se hizo dentro del contenedor de los botones de idioma, no cerrar el artículo.
+			if ($(event.target).closest('.lang-switcher').length) return;
+		
+			// Si hay un artículo visible, ocultarlo.
+			if ($body.hasClass('is-article-visible'))
+				$main._hide(true);
+		});
+		
 
 			$window.on('keyup', function(event) {
 

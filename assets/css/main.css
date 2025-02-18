@@ -38,6 +38,8 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	scrollbar-width: none; /* Oculta la scrollbar en Firefox */
+	-ms-overflow-style: none; /* Oculta la scrollbar en IE y Edge */
 }
 
 ol, ul {
@@ -79,6 +81,46 @@ input, select, textarea {
 	appearance: none;
 }
 
+/* Para los botones de los idiomas */
+	/* Contenedor del selector de idioma */
+	.lang-switcher {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		z-index: 1000;
+	}
+	/* Estilo general de cada botón */
+	.lang-button {
+	display: inline-block;
+	margin: 0 5px;
+	padding: 5px;
+	border: 2px solid #0000002e; /* Borde negro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	}
+	/* Las imágenes ocupan el 100% del botón */
+	.lang-button img {
+	width:80%;
+	height: 80%;
+	display: block;
+	}
+	/* Estilo para el botón activo (presionado) */
+	.lang-button.active {
+	box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3);
+	border-color: #6666669c;
+	}
+	.idioma.IN {
+		display: none;
+	}
+
+	body::-webkit-scrollbar {
+		display: none;
+	  }
+
 /* Basic */
 
 	@-ms-viewport {
@@ -106,7 +148,13 @@ input, select, textarea {
 
 	body {
 		background: #1b1f22;
+		scrollbar-width: none; /* Oculta la scrollbar en Firefox */
+		-ms-overflow-style: none; /* Oculta la scrollbar en IE y Edge */
 	}
+		
+		body::-webkit-scrollbar {
+			display: none;
+		}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
@@ -155,7 +203,13 @@ input, select, textarea {
 		font-weight: 300;
 		font-size: 1rem;
 		line-height: 1.65;
+		scrollbar-width: none; /* Oculta la scrollbar en Firefox */
+		-ms-overflow-style: none; /* Oculta la scrollbar en IE y Edge */
 	}
+	
+	body::-webkit-scrollbar {
+		display: none;
+	  }
 
 	a {
 		-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;

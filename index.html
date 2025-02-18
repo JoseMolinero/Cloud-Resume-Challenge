@@ -19,6 +19,14 @@
 			<div id="wrapper">
 
 				<!-- Header -->
+				<div class="lang-switcher">
+					<button id="btn-es" class="lang-button active">
+					  <img src="./images/es.png" alt="Español">
+					</button>
+					<button id="btn-in" class="lang-button">
+					  <img src="./images/in.png" alt="English">
+					</button>
+				  </div>
 					<header id="header">
 						<div class="logo" style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden;">
 							<img style="width: 100%; height: auto; display: block;" src="images/icono.png">
@@ -27,25 +35,37 @@
 							<div class="inner">
 								<h1>Jose Molinero Moles</h1>
 								<p style="text-align: center;">Software developer | AWS Architecture</p>
-								<div class="visitas">Cargando visitas...</div>
+								<div class="idioma ES visitas">Cargando visitas...</div>
+								<div class="idioma IN visitasIN">Views</div>
 								<script>
 									const counter=document.querySelector(".visitas");
+									const counterIN=document.querySelector(".visitasIN");
 									async function updatecounter() {
 										let response = await fetch("https://3bjzz7j3xfyug6ucqloeavdvgi0ztohp.lambda-url.eu-west-2.on.aws/");
 										let data = await response.json();
 										counter.innerHTML = `Visitas: ${data}`;
+										counterIN.innerHTML = `Views: ${data}`;
 									}
 									updatecounter();
 								</script>
 							</div>
 						</div>
-						<nav>
+						<nav class="idioma ES">
 							<ul>
-								<li><a href="#intro">Formación</a></li>
-								<li ><a href="#work">Experiencia</a></li>
-								<li ><a class="sobremi" href="#about">Sobre mi</a></li>
+								<li><a href="#intro">Certificaciones</a></li>
+								<li><a href="#work">Experiencia</a></li>
+								<li><a class="sobremi" href="#about">Sobre mí</a></li>
 								<li><a href="#contact">Contacto</a></li>
 								<li><a href="https://dev.josemolinero.com">Proyectos</a></li>
+							</ul>
+						</nav>	
+						<nav class="idioma IN">
+							<ul>
+								<li><a href="#intro">Certifications</a></li>
+								<li><a href="#work">Experience</a></li>
+								<li><a class="sobremi" href="#about">About me</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<li><a href="https://dev.josemolinero.com">Projects</a></li>
 							</ul>
 						</nav>
 					</header>
@@ -55,95 +75,123 @@
 
 						<!-- Intro -->
 							<article id="intro">
-								<h2 class="major">Formación</h2>
+								<h2 class="major idioma ES">Certificaciones</h2>
+								<h2 class="major idioma IN">Certifications</h2>
 								<div id="cabeza2" >
 									<span class="image main" style="margin: 0 0 2rem 0;"><img src="images/cloudPractitioner.png" alt="AWS" /></span>
 									<div style="width: 40px;"></div>
-									<p>Ante mi curiosidad por el mundo de las tecnologías en la nube y tras <a href="https://www.udemy.com/certificate/UC-951a7b2c-e688-4d87-939b-d940ec29f2ef/">informarme y formarme en <b>Udemy</b></a> me preparé para obtener la certificación de <b>Cloud Practitioner</b>, afianzando mis conocimientos con el examen oficial de Amazon y tras conseguír mi primer<a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/VHP3V1D18BB119GE"> <b>cerfiticado oficial</b></a> en AWS no dudé en seguir.</p>
+									<p class="idioma ES">Ante mi curiosidad por el mundo de las tecnologías en la nube y tras <a href="https://www.udemy.com/certificate/UC-951a7b2c-e688-4d87-939b-d940ec29f2ef/">informarme y formarme en <b>Udemy</b></a> me preparé para obtener la certificación de <b>Cloud Practitioner</b>, afianzando mis conocimientos con el examen oficial de Amazon y tras conseguir mi primer<a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/VHP3V1D18BB119GE"> <b>certificado oficial</b></a> en AWS no dudé en seguir.</p>
+									<p class="idioma IN">Due to my curiosity about cloud technologies and after <a href="https://www.udemy.com/certificate/UC-951a7b2c-e688-4d87-939b-d940ec29f2ef/">learning and training on <b>Udemy</b></a>, I prepared myself to obtain the <b>Cloud Practitioner</b> certification, strengthening my knowledge with Amazon's official exam. After achieving my first <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/VHP3V1D18BB119GE"><b>official certification</b></a> in AWS, I had no doubts about continuing.</p>
+
 								</div>
 								<div id="cabeza2" >
 									<span class="movil image main"><img src="images/solutionArchitect.png" alt="solutionArchitect" /></span>
-									<p>Tras plantearme mis gustos y curiosidades decidí orientar mi carrera hacia arquitecto de la nube, por lo que de igual manera me prepare y acabe por certificarme como <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9ffae6dfa1774a5a9ea430372b7dd256"><b>Solution architect</b></a> y esta vez pudiendo aplicarlo en mi entorno de trabajo en <a href="https://civir.es/">Civir</a></p>
+									<p class="idioma ES">Tras plantearme mis gustos y curiosidades decidí orientar mi carrera hacia arquitecto de la nube, por lo que de igual manera me preparé y acabé por certificarme como <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9ffae6dfa1774a5a9ea430372b7dd256"><b>Solution architect</b></a> y esta vez pudiendo aplicarlo en mi entorno de trabajo en <a href="https://civir.es/">Civir</a></p>
+									<p class="idioma IN">After considering my interests and curiosities, I decided to steer my career toward cloud architecture. Therefore, I prepared myself and eventually obtained the <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9ffae6dfa1774a5a9ea430372b7dd256"><b>Solution Architect</b></a> certification, this time being able to apply it in my work environment at <a href="https://civir.es/">Civir</a>.</p>
 									<div style="width: 40px;"></div>
 									<span class="pc image main" style="margin: 0 0 2rem 0;"><img src="images/solutionArchitect.png" alt="solutionArchitect" /></span>
 								</div>
 								<div id="cabeza2" >
 									<span class="image main" style="margin: 0 0 2rem 0;"><img src="images/kubernetes.jpg" alt="kubernetes"/></span>
 									<div style="width: 40px;"></div>
-									<p>Para complementar lo aprendido y poder comprender en profundidad el rol que me gustaba y al que me quería enfocar, tome el curso de <b><a href="https://www.udemy.com/certificate/UC-defbfef0-127b-462c-8964-26234caa127d/"> DevOps con Kubernetes</a></b>. En el que pude empezar a trabajar en entornos reales de <b>automatización de tareas</b> para la integración y distribución contínua.</p>
+									<p class="idioma ES">Para complementar lo aprendido y poder comprender en profundidad el rol que me gustaba y al que me quería enfocar, tomé el curso de <b><a href="https://www.udemy.com/certificate/UC-defbfef0-127b-462c-8964-26234caa127d/"> DevOps con Kubernetes</a></b>. En el que pude empezar a trabajar en entornos reales de <b>automatización de tareas</b> para la integración y distribución continua.</p>
+									<p class="idioma IN">To complement what I had learned and to fully understand the role I liked and wanted to pursue, I took the <b><a href="https://www.udemy.com/certificate/UC-defbfef0-127b-462c-8964-26234caa127d/"> DevOps with Kubernetes</a></b> course. In this course, I had the opportunity to work in real environments with <b>task automation</b> for continuous integration and deployment.</p>
 									<div style="width: 40px;"></div>
 								</div>
 								<div id="cabeza2" >
 									<span class="movil image main"><img src="images/terraform.png" alt="terraform" /></span>
-									<p>Vi necesario e interesante el uso de terraform en el ámbito en el que me movía, pues para un buen despliegue automático Terraform era los más óptimo y eficiente, por lo que decidí tomar el curso de Terraform, para lo cual opté por uno de los mejores cursos de Udemy y <a href="https://www.udemy.com/certificate/UC-1421544b-b67a-430a-893c-cd88bc8bfae1/">recibí mi certificado</a> después de mucha práctica</p>
+									<p class="idioma ES">Vi necesario e interesante el uso de terraform en el ámbito en el que me movía, pues para un buen despliegue automático Terraform era el más óptimo y eficiente, por lo que decidí tomar el curso de Terraform, para lo cual opté por uno de los mejores cursos de Udemy y <a href="https://www.udemy.com/certificate/UC-1421544b-b67a-430a-893c-cd88bc8bfae1/">recibí mi certificado</a> después de mucha práctica</p>
+									<p class="idioma IN">I found the use of Terraform necessary and interesting in the field I was working in. For efficient automatic deployment, Terraform was the most optimal solution. Therefore, I decided to take a Terraform course, choosing one of the best courses on Udemy, and <a href="https://www.udemy.com/certificate/UC-1421544b-b67a-430a-893c-cd88bc8bfae1/">earned my certification</a> after extensive practice.</p>
 									<div style="width: 40px;"></div>
 									<span class="pc image main" style="margin: 0 0 2rem 0;"><img src="images/terraform.png" alt="" /></span>
 								</div>
 								<div id="cabeza2" >
 									<span class="image main" style="margin: 0 0 2rem 0;"><img src="images/lenguajes.png" alt="lenguajes"/></span>
 									<div style="width: 40px;"></div>
-									<p>Además de los conocimientos en la nube también he desarrollado en <b>diferentes lenguajes</b> al mismo tiempo que me he ido certificarme en lenguajes como <b>JavaScript, Python, C# .Net, etc.</b></p>
+									<p class="idioma ES">Además de los conocimientos en la nube también he desarrollado en <b>diferentes lenguajes</b> al mismo tiempo que me he ido certificarme en lenguajes como <b>JavaScript, Python, C# .Net, etc.</b></p>
+									<p class="idioma IN">In addition to my cloud expertise, I have also worked with  <b>various programming languages</b>, and I have earned certifications in languages such as JavaScript, Python, C# .Net, etc.</b></p>
 									<div style="width: 40px;"></div>
 								</div>
 								<h3 class="major">Idiomas</h3>
 								<div class="idiomas">
-									<span><img src="images/es.png" alt="español" width="35px"><p> Español: nativo</p></span>
-									<span><img src="images/eeuu.webp" alt="ingles" width="35px"><p> Ingles: B2</p></span>
-									<span><img src="images/it.png" alt="italiano" width="35px"><p> Italiano: B2 (certificado)</p></span>
+									<span class="idioma ES"><img src="images/es.png" alt="español" width="35px"><p> Español: nativo</p></span>
+									<span class="idioma ES"><img src="images/in.png" alt="ingles" width="35px"><p> Inglés: B2</p></span>
+									<span class="idioma ES"><img src="images/it.png" alt="italiano" width="35px"><p> Italiano: B2 (certificado)</p></span>
+									<span class="idioma IN"><img src="images/es.png" alt="Spanish" width="35px"><p> Spanish: Native</p></span>
+								    <span class="idioma IN"><img src="images/in.png" alt="English" width="35px"><p> English: B2</p></span>
+								    <span class="idioma IN"><img src="images/it.png" alt="Italian" width="35px"><p> Italian: B2 (certified)</p></span>
 								</div>
 							</article>
 
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Experiencia</h2>
-								<div id="cabeza2" >
-									<span class="movil image main"><img src="images/civir.png" alt="" /></span>
-									<p>Me encuentro trabajando en <b><a href="https://civir.es/"> Civir</a></b> desde febrero del 2024 como <b>AWS Cloud Architect</b>, donde participo en diferentes proyectos aplicando los servicios que ofrece AWS para garantizar la solución más óptima.</p>
-									<div style="width: 40px;"></div>
-									<span class="pc image main" style="margin: 0 0 2rem 0;"><img src="images/civir.png" alt="" /></span>
-								</div>
-								<p>Con ellos tengo la oportunidad de seguir formándome y poder aplicar los conocimientos aprendidos a los proyectos que van surgiendo, lo que me ayuda a reforzar mis conocimientos y me permite dar un punto de vista ambicioso y nuevo a los procesos con los que trabajo.</p>
-								<div id="cabeza2" >
-									<span class="image main" style="margin: 0 0 2rem 0;"><img src="images/redes.jpg" alt="" /></span>
-									<div style="width: 40px;"></div>
-									<p>Durante 4 años (2020-2024) estuve trabajando con <b><a href="https://gabinetetic.es/"> Redes y Componentes Informaticos S.L.</a></b> en calidad de <b>desarrollador de software multiplataforma</b> donde conseguimos aumentar el rendimiento y la producción en toda la cadena en la que se encarga esta ERP.</p>
-								</div><div id="cabeza2" >
-									<span class="movil image main"><img src="images/eos.png" alt="" /></span>
-									<p>En el año (2019-2020) que estuve en <b><a href="https://eosiberica.es/"> Eos Iberica </a></b>pude trabajar con diferente tipo de hardware para grandes empresas y me encargué de la <b>administración de los servidores</b> para la instalación de software en las máquinas embebidas que montamos.</p>
-									<div style="width: 40px;"></div>
-									<span class="pc image main" style="margin: 0 0 2rem 0;"><img src="images/eos.png" alt="" /></span>
-								</div>
-							</article>
+						<article id="work">
+						    <h2 class="major idioma ES">Experiencia</h2>
+						    <h2 class="major idioma IN">Experience</h2>
+						    <div id="cabeza2">
+						        <span class="movil image main"><img src="images/civir.png" alt="" /></span>
+						        <p class="idioma ES">Me encuentro trabajando en <b><a href="https://civir.es/"> Civir</a></b> desde febrero del 2024 como <b>AWS Cloud Architect</b>, donde participo en diferentes proyectos aplicando los servicios que ofrece AWS para garantizar la solución más óptima.</p>
+						        <p class="idioma IN">I have been working at <b><a href="https://civir.es/"> Civir</a></b> since February 2024 as an <b>AWS Cloud Architect</b>, where I participate in various projects applying AWS services to ensure the most optimal solution.</p>
+						        <div style="width: 40px;"></div>
+						        <span class="pc image main" style="margin: 0 0 2rem 0;"><img src="images/civir.png" alt="" /></span>
+						    </div>
+						    
+						    <p class="idioma ES">Con ellos tengo la oportunidad de seguir formándome y poder aplicar los conocimientos aprendidos a los proyectos que van surgiendo, lo que me ayuda a reforzar mis conocimientos y me permite dar un punto de vista ambicioso y nuevo a los procesos con los que trabajo.</p>
+						    <p class="idioma IN">With them, I have the opportunity to continue learning and apply the knowledge I acquire to new projects as they arise. This helps me strengthen my skills and allows me to bring an ambitious and fresh perspective to the processes I work with.</p>
+
+						    <div id="cabeza2">
+						        <span class="image main" style="margin: 0 0 2rem 0;"><img src="images/redes.jpg" alt="" /></span>
+						        <div style="width: 40px;"></div>
+						        <p class="idioma ES">Durante 4 años (2020-2024) estuve trabajando con <b><a href="https://gabinetetic.es/"> Redes y Componentes Informáticos S.L.</a></b> en calidad de <b>desarrollador de software multiplataforma</b> donde conseguimos aumentar el rendimiento y la producción en toda la cadena en la que se encarga esta ERP.</p>
+						        <p class="idioma IN">For four years (2020-2024), I worked at <b><a href="https://gabinetetic.es/"> Redes y Componentes Informáticos S.L.</a></b> as a <b>multiplatform software developer</b>, where we managed to increase efficiency and production throughout the entire ERP-managed process chain.</p>
+						    </div>
+
+						    <div id="cabeza2">
+						        <span class="movil image main"><img src="images/eos.png" alt="" /></span>
+						        <p class="idioma ES">En el año (2019-2020) que estuve en <b><a href="https://eosiberica.es/"> Eos Iberica </a></b>pude trabajar con diferente tipo de hardware para grandes empresas y me encargué de la <b>administración de los servidores</b> para la instalación de software en las máquinas embebidas que montamos.</p>
+						        <p class="idioma IN">During the year (2019-2020) I spent at <b><a href="https://eosiberica.es/"> Eos Iberica </a></b>, I had the opportunity to work with various types of hardware for large companies and was responsible for <b>server administration</b> to install software on the embedded systems we assembled.</p>
+						        <div style="width: 40px;"></div>
+						        <span class="pc image main" style="margin: 0 0 2rem 0;"><img src="images/eos.png" alt="" /></span>
+						    </div>
+						</article>
 
 						<!-- About -->
-							<article id="about">
-								<h2 class="major">Sobre mi</h2>
-								<div id="cabeza" >
-									<div id="foto"><span class="image main"><img src="images/foto.PNG" height=10% alt="Jose Molinero" /></span></div>
-									<div style="width: 10%;"></div>
-									<div id="texto"><p>Mis estudios, junto a las oportunidades laborales, han impulsado mi especialización en la nube, destacando mi certificación como AWS Cloud Architect, que refleja mi compromiso con las mejores prácticas en arquitectura cloud, eso junto con mi ambición por mejorar y superar mis límites me han permitido pulir y mejorar la eficiencia de los proyectos, al mismo tiempo que me apoyaba en mis compañeros para cubrir mis flaquezas de forma recíproca aportandome varios enfoques para los problemas que nos encontrábamos.</p></div>
-								</div>
-								<p>Siempre me he considerado una persona inquieta por aprender, ya sea culturizándome con videos de divulgación científica o al trabajar en proyectos personales que me llamasen la atención y puediesen facilitarme el día a día.</p>
-							</article>
+						<article id="about">
+						    <h2 class="major idioma ES">Sobre mí</h2>
+						    <h2 class="major idioma IN">About Me</h2>
+						    <div id="cabeza">
+						        <div id="foto"><span class="image main"><img src="images/foto.PNG" height=10% alt="Jose Molinero" /></span></div>
+						        <div style="width: 10%;"></div>
+						        <div id="texto">
+						            <p class="idioma ES">Mis estudios, junto a las oportunidades laborales, han impulsado mi especialización en la nube, destacando mi certificación como AWS Cloud Architect, que refleja mi compromiso con las mejores prácticas en arquitectura cloud, eso junto con mi ambición por mejorar y superar mis límites me han permitido pulir y mejorar la eficiencia de los proyectos, al mismo tiempo que me apoyaba en mis compañeros para cubrir mis flaquezas de forma recíproca aportándome varios enfoques para los problemas que nos encontrábamos.</p>
+						            <p class="idioma IN">My studies, along with job opportunities, have driven my specialization in cloud computing, highlighted by my AWS Cloud Architect certification, which reflects my commitment to best practices in cloud architecture. Along with my ambition to improve and push my limits, this has allowed me to refine and enhance project efficiency while relying on my colleagues to address weaknesses reciprocally, gaining multiple perspectives on the challenges we encountered.</p>
+						        </div>
+						    </div>
+						    <p class="idioma ES">Siempre me he considerado una persona inquieta por aprender, ya sea culturizándome con videos de divulgación científica o al trabajar en proyectos personales que me llamaran la atención y pudiesen facilitarme el día a día.</p>
+						    <p class="idioma IN">I have always considered myself a curious learner, whether by educating myself through scientific outreach videos or working on personal projects that catch my interest and make my daily life easier.</p>
+						</article>
 
 						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contacto</h2>
-								<p style="text-align: left;">Actualmente me encuentro en Granada, con disponibilidad de movilidad y vehículo propio.<br>
-								Les dejo mis redes de contacto y si lo desean pueden escribirme a pepemolineromoles98@gmail.com</p>
-								<ul class="icons">
-									<li><a href="https://www.linkedin.com/in/jose-molinero-moles/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-									<li><a href="mailto:pepemolineromoles98@gmail.com" class="icon brands fa-google"><span class="label">Gmail</span></a></li>
-									<li><a href="https://github.com/SuperUsuarioEnUnBlog" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</article>
+						<article id="contact">
+						    <h2 class="major idioma ES">Contacto</h2>
+						    <h2 class="major idioma IN">Contact</h2>
+						    <p class="idioma ES" style="text-align: left;">Actualmente me encuentro en Granada, con disponibilidad de movilidad y vehículo propio.<br>
+						        Les dejo mis redes de contacto y si lo desean pueden escribirme a pepemolineromoles98@gmail.com</p>
+						    <p class="idioma IN" style="text-align: left;">I am currently in Granada, with availability for travel and my own vehicle.<br>
+						        Here are my contact links, and if you wish, you can write to me at pepemolineromoles98@gmail.com</p>
+						    <ul class="icons">
+						        <li><a href="https://www.linkedin.com/in/jose-molinero-moles/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						        <li><a href="mailto:pepemolineromoles98@gmail.com" class="icon brands fa-google"><span class="label">Gmail</span></a></li>
+						        <li><a href="https://github.com/SuperUsuarioEnUnBlog" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						    </ul>
+						</article>
 
-					</div>
+						</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p style="text-align: center;">En cumplimiento de los requisitos del <a href="https://cloudresumechallenge.dev/">Cloud Resume Challenge</a></p>
-					</footer>
+						<!-- Footer -->
+						<footer id="footer">
+						    <p style="text-align: center;" class="idioma ES">En cumplimiento de los requisitos del <a href="https://cloudresumechallenge.dev/">Cloud Resume Challenge</a></p>
+						    <p style="text-align: center;" class="idioma IN">In compliance with the requirements of the <a href="https://cloudresumechallenge.dev/">Cloud Resume Challenge</a></p>
+						</footer>
+
 
 			</div>
 
@@ -156,6 +204,37 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				// Referencias a los botones
+				const btnES = document.getElementById('btn-es');
+				const btnIN = document.getElementById('btn-in');
+
+				// Función para mostrar u ocultar párrafos según el idioma seleccionado
+				function toggleLanguage(lang) {
+				if (lang === 'ES') {
+					document.querySelectorAll('.idioma.ES').forEach(el => el.style.display = 'block');
+					document.querySelectorAll('.idioma.IN').forEach(el => el.style.display = 'none');
+					btnES.classList.add('active');
+					btnIN.classList.remove('active');
+				} else if (lang === 'IN') {
+					document.querySelectorAll('.idioma.ES').forEach(el => el.style.display = 'none');
+					document.querySelectorAll('.idioma.IN').forEach(el => el.style.display = 'block');
+					btnES.classList.remove('active');
+					btnIN.classList.add('active');
+				}
+				}
+
+				// Asignación de eventos a los botones
+				btnES.addEventListener('click', function(e) {
+				e.preventDefault();
+				toggleLanguage('ES');
+				});
+
+				btnIN.addEventListener('click', function(e) {
+				e.preventDefault();
+				toggleLanguage('IN');
+				});
+			</script>
 
 	</body>
 </html>
