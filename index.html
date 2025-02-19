@@ -41,28 +41,10 @@
 									const counter=document.querySelector(".visitas");
 									const counterIN=document.querySelector(".visitasIN");
 									async function updatecounter() {
-										try {
-											// Obtener la IP del usuario usando un servicio externo
-											let ipResponse = await fetch("https://api64.ipify.org?format=json");
-											let ipData = await ipResponse.json();
-											let userIP = ipData.ip;
-
-											// Enviar la IP a la lambda
-											let response = await fetch("https://3bjzz7j3xfyug6ucqloeavdvgi0ztohp.lambda-url.eu-west-2.on.aws/", {
-												method: "POST",
-												headers: {
-													"Content-Type": "application/json"
-												},
-												body: JSON.stringify({ ip: userIP }) // Enviamos la IP como JSON
-											});
-
-											let data = await response.json();
-											counter.innerHTML = `Visitas: ${data}`;
-											counterIN.innerHTML = `Views: ${data}`;
-
-										} catch (error) {
-											console.error("Error al actualizar el contador:", error);
-										}
+										let response = await fetch("https://3bjzz7j3xfyug6ucqloeavdvgi0ztohp.lambda-url.eu-west-2.on.aws/");
+										let data = await response.json();
+										counter.innerHTML = `Visitas: ${data}`;
+										counterIN.innerHTML = `Views: ${data}`;
 									}
 									updatecounter();
 								</script>
