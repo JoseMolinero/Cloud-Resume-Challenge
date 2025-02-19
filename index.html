@@ -34,17 +34,35 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Jose Molinero Moles</h1>
-								<p style="text-align: center;">Software developer | AWS Architecture</p>
+								<p style="text-align: center;">AWS Cloud Architect | DevOps Engineer</p>
 								<div class="idioma ES visitas">Cargando visitas...</div>
 								<div class="idioma IN visitasIN">Views</div>
 								<script>
 									const counter=document.querySelector(".visitas");
 									const counterIN=document.querySelector(".visitasIN");
 									async function updatecounter() {
-										let response = await fetch("https://3bjzz7j3xfyug6ucqloeavdvgi0ztohp.lambda-url.eu-west-2.on.aws/");
-										let data = await response.json();
-										counter.innerHTML = `Visitas: ${data}`;
-										counterIN.innerHTML = `Views: ${data}`;
+										try {
+											let ipResponse = await fetch("https://api64.ipify.org?format=json");
+											let ipData = await ipResponse.json();
+											let userIP = ipData.ip;
+
+											let response = await fetch("https://3bjzz7j3xfyug6ucqloeavdvgi0ztohp.lambda-url.eu-west-2.on.aws/", 
+												{
+												method: "POST",
+    											mode: "cors",
+												headers: {
+													"Content-Type": "application/json"
+												},
+												body: JSON.stringify({ ip: userIP }) 
+											});
+
+											let data = await response.json();
+											counter.innerHTML = `Visitas: ${data}`;
+											counterIN.innerHTML = `Views: ${data}`;
+
+										} catch (error) {
+											console.error("Error al actualizar el contador:", error);
+										}
 									}
 									updatecounter();
 								</script>
