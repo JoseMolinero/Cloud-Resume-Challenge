@@ -20,6 +20,4 @@ jobs:
         run:
           aws s3 sync "$SOURCE_DIR" "s3://$AWS_S3_BUCKET" --acl public-read --follow-symlinks --delete --exclude ".github/*" --exclude ".github/**" --exclude ".gitignore" --exclude "README.md" --dryrun
 
-          aws cloudfront create-invalidation \
-            --distribution-id  ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
+          aws cloudfront create-invalidation --distribution-id  ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
