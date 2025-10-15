@@ -3,7 +3,7 @@ name : Actualizando bucket de S3
 on:
   push:
     branches:
-    - main
+    - develop
 
 jobs:
   deploy:
