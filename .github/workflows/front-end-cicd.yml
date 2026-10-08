@@ -28,15 +28,11 @@ jobs:
         shell: bash
         env:
           AWS_DEPLOY_ROLE_ARN: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
         run: |
-          for name in AWS_DEPLOY_ROLE_ARN AWS_S3_BUCKET CLOUDFRONT_DISTRIBUTION_ID; do
-            if [[ -z "${!name}" ]]; then
-              echo "::error title=Missing repository secret::$name must be set in Settings > Secrets and variables > Actions"
-              exit 1
-            fi
-          done
+          if [[ -z "$AWS_DEPLOY_ROLE_ARN" ]]; then
+            echo "::error title=Missing repository secret::AWS_DEPLOY_ROLE_ARN must be set in Settings > Secrets and variables > Actions"
+            exit 1
+          fi
 
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -61,8 +57,8 @@ jobs:
       - name: Upload and invalidate changed files
         shell: bash
         env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          AWS_S3_BUCKET: pepemolinero-cloud-resume-challenge
+          CLOUDFRONT_DISTRIBUTION_ID: E18TCKIE9I370E
         run: |
           set -euo pipefail
           aws s3 sync "$RUNNER_TEMP/resume-site/" "s3://$AWS_S3_BUCKET/" --delete --no-follow-symlinks | tee "$RUNNER_TEMP/s3-sync.log"
