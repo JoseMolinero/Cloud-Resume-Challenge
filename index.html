@@ -209,14 +209,22 @@
 						        <span>Proyecto <a href="https://cloudresumechallenge.dev/">Cloud Resume Challenge</a></span>
 						        <details class="privacy-notice">
 						            <summary aria-label="Información sobre visitas y privacidad" title="Privacidad">i</summary>
+						            <div class="privacy-panel" role="region" aria-label="Privacidad">
+						                <button class="privacy-close" type="button" aria-label="Cerrar aviso">×</button>
+						                <h3>Privacidad</h3>
 						            <p>Para medir las visitas, este sitio registra la IP de conexión, la primera y última visita, el número de accesos y, si están disponibles, el país y la región aproximados. Los datos caducan 180 días después de la última visita y su eliminación automática puede tardar unos días más. Puedes solicitar información o su eliminación en <a href="mailto:pepemolineromoles98@gmail.com">pepemolineromoles98@gmail.com</a>.</p>
+						            </div>
 						        </details>
 						    </div></div>
 						    <div class="idioma IN"><div class="footer-row">
 						        <span><a href="https://cloudresumechallenge.dev/">Cloud Resume Challenge</a> project</span>
 						        <details class="privacy-notice">
 						            <summary aria-label="Information about visits and privacy" title="Privacy">i</summary>
+						            <div class="privacy-panel" role="region" aria-label="Privacy">
+						                <button class="privacy-close" type="button" aria-label="Close notice">×</button>
+						                <h3>Privacy</h3>
 						            <p>To measure visits, this site records the connection IP, first and last visit, number of accesses and, when available, approximate country and region. Data expires 180 days after the last visit; automatic deletion can take a few more days. You can request information or deletion at <a href="mailto:pepemolineromoles98@gmail.com">pepemolineromoles98@gmail.com</a>.</p>
+						            </div>
 						        </details>
 						    </div></div>
 						</footer>
@@ -237,9 +245,38 @@
 				// Referencias a los botones
 				const btnES = document.getElementById('btn-es');
 				const btnIN = document.getElementById('btn-in');
+				const privacyNotices = document.querySelectorAll('.privacy-notice');
+
+				function closePrivacyNotices() {
+					privacyNotices.forEach(notice => notice.open = false);
+				}
+
+				document.addEventListener('click', function(e) {
+					const closeButton = e.target.closest('.privacy-close');
+					if (closeButton) {
+						const notice = closeButton.closest('.privacy-notice');
+						notice.open = false;
+						notice.querySelector('summary').focus();
+						return;
+					}
+					privacyNotices.forEach(notice => {
+						if (!notice.contains(e.target)) notice.open = false;
+					});
+				});
+
+				document.addEventListener('keydown', function(e) {
+					if (e.key === 'Escape') {
+						const openNotice = document.querySelector('.privacy-notice[open]');
+						closePrivacyNotices();
+						if (openNotice) openNotice.querySelector('summary').focus();
+					}
+				});
+
+				window.addEventListener('hashchange', closePrivacyNotices);
 
 				// Función para mostrar u ocultar párrafos según el idioma seleccionado
 				function toggleLanguage(lang) {
+				closePrivacyNotices();
 				if (lang === 'ES') {
 					document.querySelectorAll('.idioma.ES').forEach(el => el.style.display = 'block');
 					document.querySelectorAll('.idioma.IN').forEach(el => el.style.display = 'none');

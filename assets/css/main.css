@@ -1779,6 +1779,10 @@ input, select, textarea {
 			gap: 0.7rem;
 			font-size: 0.76rem;
 			line-height: 1.5;
+		}
+
+		#footer .footer-row > span,
+		#footer .privacy-notice summary {
 			opacity: 0.75;
 		}
 
@@ -1804,7 +1808,8 @@ input, select, textarea {
 			background: rgba(255, 255, 255, 0.16);
 		}
 
-		#footer .privacy-notice p {
+		#footer .privacy-panel {
+			box-sizing: border-box;
 			position: fixed;
 			bottom: 4.5rem;
 			left: 50%;
@@ -1822,7 +1827,36 @@ input, select, textarea {
 			font-size: 0.86rem;
 			line-height: 1.55;
 			text-align: left;
-			opacity: 1;
+			overflow-wrap: anywhere;
+		}
+
+		#footer .privacy-panel h3 {
+			margin: 0 2rem 0.75rem 0;
+			font-size: 0.85rem;
+			letter-spacing: 0.1rem;
+		}
+
+		#footer .privacy-panel p {
+			margin: 0;
+		}
+
+		#footer .privacy-close {
+			position: absolute;
+			top: 0.5rem;
+			right: 0.5rem;
+			width: 2rem;
+			height: 2rem;
+			padding: 0;
+			line-height: 1;
+			box-shadow: none;
+			font-size: 1.4rem;
+			letter-spacing: 0;
+		}
+
+		#footer .privacy-close:focus-visible,
+		#footer .privacy-notice summary:focus-visible {
+			outline: 2px solid #fff;
+			outline-offset: 3px;
 		}
 
 		#footer .copyright {
