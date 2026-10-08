@@ -42,23 +42,15 @@
 									const counterIN=document.querySelector(".visitasIN");
 									async function updatecounter() {
 										try {
-											let ipResponse = await fetch("https://api64.ipify.org?format=json");
-											let ipData = await ipResponse.json();
-											let userIP = ipData.ip;
-
-											let response = await fetch("https://3bjzz7j3xfyug6ucqloeavdvgi0ztohp.lambda-url.eu-west-2.on.aws/", 
+											const response = await fetch("https://3bjzz7j3xfyug6ucqloeavdvgi0ztohp.lambda-url.eu-west-2.on.aws/",
 												{
-												method: "POST",
-    											mode: "cors",
-												headers: {
-													"Content-Type": "application/json"
-												},
-												body: JSON.stringify({ ip: userIP }) 
-											});
+													method: "POST"
+												});
 
-											let data = await response.json();
-											counter.innerHTML = `Visitas: ${data}`;
-											counterIN.innerHTML = `Views: ${data}`;
+											if (!response.ok) throw new Error(`HTTP ${response.status}`);
+											const data = await response.json();
+											counter.textContent = `Visitas: ${data.views}`;
+											counterIN.textContent = `Views: ${data.views}`;
 
 										} catch (error) {
 											console.error("Error al actualizar el contador:", error);
@@ -215,6 +207,8 @@
 						<footer id="footer">
 						    <p style="text-align: center;" class="idioma ES">En cumplimiento de los requisitos del <a href="https://cloudresumechallenge.dev/">Cloud Resume Challenge</a></p>
 						    <p style="text-align: center;" class="idioma IN">In compliance with the requirements of the <a href="https://cloudresumechallenge.dev/">Cloud Resume Challenge</a></p>
+						    <p class="idioma ES">Para medir las visitas, este sitio registra la IP de conexión, la primera y última visita, el número de accesos y, si están disponibles, el país y la región aproximados. Los datos caducan 180 días después de la última visita y su eliminación automática puede tardar unos días más. Puedes solicitar información o su eliminación en <a href="mailto:pepemolineromoles98@gmail.com">pepemolineromoles98@gmail.com</a>.</p>
+						    <p class="idioma IN">To measure visits, this site records the connection IP, first and last visit, number of accesses and, when available, approximate country and region. Data expires 180 days after the last visit; automatic deletion can take a few more days. You can request information or deletion at <a href="mailto:pepemolineromoles98@gmail.com">pepemolineromoles98@gmail.com</a>.</p>
 						</footer>
 
 

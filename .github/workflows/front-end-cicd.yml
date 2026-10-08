@@ -1,23 +1,61 @@
-name: Actualizando archivos del bucket S3
+name: Deploy resume
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
+    paths:
+      - index.html
+      - assets/css/**
+      - assets/js/**
+      - assets/webfonts/**
+      - images/**
+      - .github/workflows/front-end-cicd.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-resume
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Actualizando S3
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Prepare public files
+        shell: bash
+        run: |
+          set -euo pipefail
+          site_dir="$RUNNER_TEMP/resume-site"
+          mkdir -p "$site_dir/assets" "$site_dir/images"
+          cp index.html "$site_dir/"
+          cp -R assets/css assets/js assets/webfonts "$site_dir/assets/"
+          cp images/{accenture.png,bg.jpg,civir.png,cloudPractitioner.png,eos.png,es.png,foto.PNG,icono.png,in.png,it.png,kubernetes.jpg,lenguajes.png,overlay.png,redes.jpg,solutionArchitect.png,terraform.png} "$site_dir/images/"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: eu-west-2
+
+      - name: Upload and invalidate changed files
+        shell: bash
         env:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'eu-west-2'
-          SOURCE_DIR: '.'
-        run:
-          aws s3 sync "$SOURCE_DIR" "s3://$AWS_S3_BUCKET" --acl public-read --follow-symlinks --delete --exclude ".github/*" --exclude ".github/**" --exclude ".gitignore" --exclude "README.md" --dryrun
-
-          aws cloudfront create-invalidation --distribution-id  ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+        run: |
+          set -euo pipefail
+          aws s3 sync "$RUNNER_TEMP/resume-site/" "s3://$AWS_S3_BUCKET/" --delete --no-follow-symlinks | tee "$RUNNER_TEMP/s3-sync.log"
+          mapfile -t paths < <(sed -nE 's#^(upload: .* to |delete: )s3://[^/]+(/.*)$#\2#p' "$RUNNER_TEMP/s3-sync.log" | sort -u)
+          if printf '%s\n' "${paths[@]}" | grep -Fxq '/index.html'; then
+            paths+=('/')
+          fi
+          if ((${#paths[@]} > 0)); then
+            aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "${paths[@]}"
+          fi
