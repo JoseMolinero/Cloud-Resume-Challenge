@@ -61,11 +61,5 @@ jobs:
           CLOUDFRONT_DISTRIBUTION_ID: E18TCKIE9I370E
         run: |
           set -euo pipefail
-          aws s3 sync "$RUNNER_TEMP/resume-site/" "s3://$AWS_S3_BUCKET/" --delete --no-follow-symlinks | tee "$RUNNER_TEMP/s3-sync.log"
-          mapfile -t paths < <(sed -nE 's#^(upload: .* to |delete: )s3://[^/]+(/.*)$#\2#p' "$RUNNER_TEMP/s3-sync.log" | sort -u)
-          if printf '%s\n' "${paths[@]}" | grep -Fxq '/index.html'; then
-            paths+=('/')
-          fi
-          if ((${#paths[@]} > 0)); then
-            aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "${paths[@]}"
-          fi
+          aws s3 sync "$RUNNER_TEMP/resume-site/" "s3://$AWS_S3_BUCKET/" --delete --no-follow-symlinks
+          aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths '/*'
