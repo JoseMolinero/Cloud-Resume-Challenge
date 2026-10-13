@@ -16,6 +16,10 @@ override.tf.json
 *_override.tf.json
 .env
 .env.*
+*.pem
+*.key
+*.p12
+*.pfx
 infra/packedlambda.zip
 images/*.zip
 images/*.pdf

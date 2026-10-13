@@ -46,7 +46,7 @@ jobs:
           mkdir -p "$site_dir/assets" "$site_dir/images"
           cp index.html "$site_dir/"
           cp -R assets/css assets/js assets/webfonts "$site_dir/assets/"
-          cp images/{accenture.png,bg.jpg,civir.png,cloudPractitioner.png,eos.png,es.png,foto.PNG,icono.png,in.png,it.png,kubernetes.jpg,lenguajes.png,overlay.png,redes.jpg,solutionArchitect.png,terraform.png} "$site_dir/images/"
+          cp images/{accenture.png,bg.jpg,civir.png,cloudPractitioner.png,eos.png,es.png,foto.PNG,icono.png,in.png,it.png,kubernetes.jpg,overlay.png,redes.jpg,solutionArchitect.png,terraform.png} "$site_dir/images/"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0

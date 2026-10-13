@@ -82,7 +82,7 @@
 		// Methods.
 			$main._show = function(id, initial) {
 
-				var $article = $main_articles.filter('#' + id);
+				var $article = $main_articles.filter(function() { return this.id === id; });
 
 				// No such article? Bail.
 					if ($article.length == 0)
@@ -210,6 +210,11 @@
 			$main._hide = function(addState) {
 
 				var $article = $main_articles.filter('.active');
+				function restoreNavigationFocus() {
+					$header.find('nav:visible a').filter(function() {
+						return this.hash === '#' + $article.attr('id');
+					}).first().trigger('focus');
+				}
 
 				// Article not visible? Bail.
 					if (!$body.hasClass('is-article-visible'))
@@ -241,6 +246,7 @@
 
 							// Unmark as visible.
 								$body.removeClass('is-article-visible');
+								restoreNavigationFocus();
 
 							// Unlock.
 								locked = false;
@@ -278,6 +284,7 @@
 							setTimeout(function() {
 
 								$body.removeClass('is-article-visible');
+								restoreNavigationFocus();
 
 								// Window stuff.
 									$window
@@ -302,7 +309,7 @@
 				var $this = $(this);
 
 				// Close.
-					$('<div class="close">Close</div>')
+					$('<button type="button" class="close" aria-label="Close section">Close</button>')
 						.appendTo($this)
 						.on('click', function() {
 							location.hash = '';
@@ -362,7 +369,7 @@
 					}
 
 				// Otherwise, check for a matching article.
-					else if ($main_articles.filter(location.hash).length > 0) {
+					else if ($main_articles.filter(function() { return '#' + this.id === location.hash; }).length > 0) {
 
 						// Prevent default.
 							event.preventDefault();

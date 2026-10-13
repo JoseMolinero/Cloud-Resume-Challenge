@@ -1696,6 +1696,10 @@ input, select, textarea {
 			}
 
 			#main article .close {
+				padding: 0;
+				box-shadow: none;
+				border: 0;
+				background: transparent;
 				display: block;
 				position: absolute;
 				top: 0;

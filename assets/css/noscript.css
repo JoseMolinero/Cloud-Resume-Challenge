@@ -31,7 +31,19 @@
 
 /* Main */
 
+	#main {
+		display: block;
+	}
+
+	body .lang-switcher {
+		display: none;
+	}
+
+	#footer .privacy-close {
+		display: none;
+	}
+
 	#main article {
 		opacity: 1;
-		margin: 4rem 0 0 0;
+		margin: 4rem auto 0;
 	}
