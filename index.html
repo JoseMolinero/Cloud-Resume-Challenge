@@ -4,7 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="es">
 	<head>
 		<title>Jose Molinero - Resume</title>
 		<meta charset="utf-8" />
@@ -12,6 +12,69 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="icon" href="images/icono.png" type="image/png">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<style>
+			/* Ajustes de idioma, lectura y navegación. */
+			.idioma[hidden] { display: none !important; }
+			html[lang="en"] .idioma.IN { display: revert; }
+			.lang-switcher {
+				display: flex;
+				border: 1px solid rgba(255, 255, 255, 0.5);
+				border-radius: 4px;
+				overflow: hidden;
+				background: #252a32;
+			}
+			.lang-button {
+				gap: 0.4rem;
+				min-width: 64px;
+				height: 44px;
+				margin: 0;
+				padding: 0 0.65rem;
+				border: 0;
+				border-radius: 0;
+				box-shadow: none;
+				font-size: 0.7rem;
+				letter-spacing: 0.08rem;
+				line-height: 1;
+			}
+			.lang-button + .lang-button { border-left: 1px solid rgba(255, 255, 255, 0.35); }
+			.lang-button img { width: 20px; height: auto; }
+			.lang-button.active { background: rgba(255, 255, 255, 0.16); box-shadow: inset 0 -2px #fff; }
+			.lang-button:hover { background: rgba(255, 255, 255, 0.1); }
+			.lang-button:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+			#header nav a:focus-visible { outline: 2px solid #fff; outline-offset: -4px; background: rgba(255, 255, 255, 0.12); }
+			#main article .close:focus-visible { outline: 2px solid #fff; outline-offset: -8px; }
+			.visitas, .visitasIN { font-size: 0.85rem; color: rgba(255, 255, 255, 0.75); }
+			#main article p { line-height: 1.8; }
+			#main article h2.major { max-width: 100%; overflow-wrap: anywhere; }
+			@media screen and (max-width: 840px) {
+				#header nav ul { flex-direction: column; min-width: 12rem; max-width: 100%; }
+				#header nav ul li { border-left: 0; border-top: solid 1px #fff; }
+				#header nav ul li:first-child { border-top: 0; }
+				#header nav ul li a { height: max(3rem, 44px); line-height: max(3rem, 44px); min-width: 0; width: 100%; }
+				#header nav.use-middle:after { display: none; }
+			}
+			@media screen and (max-width: 600px) {
+				#wrapper { padding-top: 5.25rem; }
+				.lang-switcher { top: 16px; right: 16px; }
+				#header { padding: 1rem 0; }
+				#header .content .inner { padding: 2rem 0.75rem; }
+				#header .content p { letter-spacing: 0.15rem; margin-bottom: 1.5rem; }
+				#main article { padding: 3.5rem 1.5rem 1.5rem; }
+				#main article p { font-size: 1.05rem; }
+				#main article h2.major { font-size: 1.35rem; letter-spacing: 0.25rem; }
+				#cabeza2, #about #cabeza { display: block; }
+				#cabeza2 .image.main { width: min(14rem, 100%); margin: 0 auto 1.5rem !important; }
+				#cabeza2 p, #about #cabeza #texto { width: 100%; }
+				#about #cabeza #foto { width: min(14rem, 70%); margin: 0 auto; }
+				.pc { display: none !important; }
+				.movil { display: block !important; }
+			}
+			@media screen and (max-width: 360px) {
+				#header h1 { font-size: 1.6rem; letter-spacing: 0.35rem; }
+				#main article h2.major { font-size: 1.3rem; letter-spacing: 0.25rem; }
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -19,17 +82,17 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-				<div class="lang-switcher">
-					<button id="btn-es" class="lang-button active">
-					  <img src="./images/es.png" alt="Español">
+				<div class="lang-switcher" role="group" aria-label="Idioma / Language">
+					<button id="btn-es" class="lang-button active" type="button" aria-label="Español" aria-pressed="true" lang="es">
+					  <img src="./images/es.png" alt=""><span>ES</span>
 					</button>
-					<button id="btn-in" class="lang-button">
-					  <img src="./images/in.png" alt="English">
+					<button id="btn-in" class="lang-button" type="button" aria-label="English" aria-pressed="false" lang="en">
+					  <img src="./images/in.png" alt=""><span>EN</span>
 					</button>
 				  </div>
 					<header id="header">
 						<div class="logo" style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden;">
-							<img style="width: 100%; height: auto; display: block;" src="images/icono.png">
+							<img style="width: 100%; height: auto; display: block;" src="images/icono.png" alt="Avatar de Jose Molinero">
 						</div>
 						<div class="content">
 							<div class="inner">
@@ -60,7 +123,7 @@
 								</script>
 							</div>
 						</div>
-						<nav class="idioma ES">
+						<nav class="idioma ES" aria-label="Secciones">
 							<ul>
 								<li><a href="#intro">Certificaciones</a></li>
 								<li><a href="#work">Experiencia</a></li>
@@ -69,7 +132,7 @@
 								<li><a href="https://dev.josemolinero.com">Proyectos</a></li>
 							</ul>
 						</nav>	
-						<nav class="idioma IN">
+						<nav class="idioma IN" aria-label="Sections">
 							<ul>
 								<li><a href="#intro">Certifications</a></li>
 								<li><a href="#work">Experience</a></li>
@@ -118,11 +181,12 @@
 								<div id="cabeza2" >
 									<span class="image main" style="margin: 0 0 2rem 0;"><img src="images/lenguajes.png" alt="lenguajes"/></span>
 									<div style="width: 40px;"></div>
-									<p class="idioma ES">Además de los conocimientos en la nube también he desarrollado en <b>diferentes lenguajes</b> al mismo tiempo que me he ido certificarme en lenguajes como <b>JavaScript, Python, C# .Net, etc.</b></p>
-									<p class="idioma IN">In addition to my cloud expertise, I have also worked with  <b>various programming languages</b>, and I have earned certifications in languages such as JavaScript, Python, C# .Net, etc.</b></p>
+									<p class="idioma ES">Además de mis conocimientos en la nube, he desarrollado en <b>diferentes lenguajes</b> y he seguido formándome en <b>JavaScript, Python, C# y .NET</b>, entre otros.</p>
+									<p class="idioma IN">In addition to my cloud expertise, I have developed software in <b>various programming languages</b> and continued my training in <b>JavaScript, Python, C# and .NET</b>, among others.</p>
 									<div style="width: 40px;"></div>
 								</div>
-								<h3 class="major">Idiomas</h3>
+								<h3 class="major idioma ES">Idiomas</h3>
+								<h3 class="major idioma IN">Languages</h3>
 								<div class="idiomas">
 									<span class="idioma ES"><img src="images/es.png" alt="español" width="35px"><p> Español: nativo</p></span>
 									<span class="idioma ES"><img src="images/in.png" alt="ingles" width="35px"><p> Inglés: B2</p></span>
@@ -139,14 +203,14 @@
 						    <div id="cabeza2">
 						        <span class="image main" style="margin: 0 0 2rem 0;"><img src="images/accenture.png" alt="" /></span>
 						        <div style="width: 40px;"></div>
-						        <p class="idioma ES">Me encuentro trabajando en <b><a href="https://accenture.es/"> Accenture</a></b> desde mayo del 2025 en la misma posición de <b>AWS Cloud Architect</b>, realizando mejoras en el código automatizable y mejorando la infraestructura de diferentes proyectos, ajustando los detalles a la medida del cliente para cumplir con las buenas practicas que indica el Well-Architect.</p>
-						        <p class="idioma IN">I have been working at <b><a href="https://accenture.es/"> Accenture</a></b> since May 2025 in the same position as an <b>AWS Cloud Architect</b>,  making improvements to automatable code and enhancing the infrastructure of various projects, tailoring the details to the client's needs in order to comply with the best practices outlined by the Well-Architected Framework.</p>
+						        <p class="idioma ES">Trabajo en <b><a href="https://accenture.es/">Accenture</a></b> desde mayo de 2025 como <b>AWS Cloud Architect</b>. Mejoro la automatización y la infraestructura de diferentes proyectos, adaptando las soluciones a las necesidades del cliente y siguiendo las buenas prácticas del AWS Well-Architected Framework.</p>
+						        <p class="idioma IN">I have been working at <b><a href="https://accenture.es/">Accenture</a></b> since May 2025 as an <b>AWS Cloud Architect</b>. I improve automation and infrastructure across different projects, adapting solutions to each client's needs and following the AWS Well-Architected Framework's best practices.</p>
 						    </div>
 
 						    <div id="cabeza2">
 						        <span class="movil image main"><img src="images/civir.png" alt="" /></span>
 						        <p class="idioma ES">Entre 2024 y 2025 he estado trabajando en <b><a href="https://civir.es/"> Civir</a></b>, en concreto desde febrero del 2024 a mayo de 2025 como <b>AWS Cloud Architect</b>, donde he participado en diferentes proyectos aplicando los servicios que ofrece AWS para garantizar la solución más óptima.</p>
-						        <p class="idioma IN">I have been working at <b><a href="https://civir.es/"> Civir</a></b> since February 2024 as an <b>AWS Cloud Architect</b>, where I participate in various projects applying AWS services to ensure the most optimal solution.</p>
+						        <p class="idioma IN">From February 2024 to May 2025, I worked at <b><a href="https://civir.es/">Civir</a></b> as an <b>AWS Cloud Architect</b>, contributing to different projects and using AWS services to design solutions suited to their needs.</p>
 						        <div style="width: 40px;"></div>
 						        <span class="pc image main" style="margin: 0 0 2rem 0;"><img src="images/civir.png" alt="" /></span>
 						    </div>
@@ -277,18 +341,37 @@
 				// Función para mostrar u ocultar párrafos según el idioma seleccionado
 				function toggleLanguage(lang) {
 				closePrivacyNotices();
-				if (lang === 'ES') {
-					document.querySelectorAll('.idioma.ES').forEach(el => el.style.display = 'block');
-					document.querySelectorAll('.idioma.IN').forEach(el => el.style.display = 'none');
-					btnES.classList.add('active');
-					btnIN.classList.remove('active');
-				} else if (lang === 'IN') {
-					document.querySelectorAll('.idioma.ES').forEach(el => el.style.display = 'none');
-					document.querySelectorAll('.idioma.IN').forEach(el => el.style.display = 'block');
-					btnES.classList.remove('active');
-					btnIN.classList.add('active');
+					const spanish = lang === 'ES';
+					document.documentElement.lang = spanish ? 'es' : 'en';
+					document.title = spanish ? 'Jose Molinero - Currículum' : 'Jose Molinero - Resume';
+					document.querySelectorAll('.idioma').forEach(el => el.hidden = !el.classList.contains(lang));
+					btnES.classList.toggle('active', spanish);
+					btnIN.classList.toggle('active', !spanish);
+					btnES.setAttribute('aria-pressed', String(spanish));
+					btnIN.setAttribute('aria-pressed', String(!spanish));
+					document.querySelector('.logo img').alt = spanish ? 'Avatar de Jose Molinero' : 'Jose Molinero avatar';
+					document.querySelectorAll('#main article .close').forEach(el => {
+						el.textContent = spanish ? 'Cerrar' : 'Close';
+						el.setAttribute('aria-label', spanish ? 'Cerrar sección' : 'Close section');
+					});
+					try { localStorage.setItem('resume-language', spanish ? 'es' : 'en'); } catch (error) {}
 				}
-				}
+
+				// El control de cierre de la plantilla también se puede usar con teclado.
+				document.querySelectorAll('#main article .close').forEach(el => {
+					el.setAttribute('role', 'button');
+					el.tabIndex = 0;
+					el.addEventListener('keydown', function(e) {
+						if (e.key === 'Enter' || e.key === ' ') {
+							e.preventDefault();
+							el.click();
+						}
+					});
+				});
+
+				let initialLanguage = 'ES';
+				try { if (localStorage.getItem('resume-language') === 'en') initialLanguage = 'IN'; } catch (error) {}
+				toggleLanguage(initialLanguage);
 
 				// Asignación de eventos a los botones
 				btnES.addEventListener('click', function(e) {
